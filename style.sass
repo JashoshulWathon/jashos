@@ -1,0 +1,456 @@
+*
+  margin: 0
+  padding: 0
+
+
+$coco: rgba(56, 52, 45, 1)
+$softblue: #8e9fef
+
+
+$mobile-width: 480px
+$tablet-width: 767px
+$desktop-width: 1024px
+
+@mixin mobile
+  @media (max-width: #{$tablet-width})
+    @content
+
+@mixin tablet
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+    @content
+
+@mixin desktop
+  @media (min-width: #{$desktop-width})
+    @content
+
+
+body
+  text-align: center
+
+header
+  position: relative
+  width: 100%
+  height: 100vh
+  background:
+    image: url(img/vashishtha-jogi-101218.jpg)
+    size: cover
+    position: top-center
+    attactment: fixed
+
+.nav-container
+  display: inline-block
+  width: 100%
+  height: auto
+  position: relative
+
+.logo
+  position: fixed
+  top: 25px
+  left: 35px
+  z-index: 999
+
+  h2
+    font-family: 'Unica One'
+    color: white
+    font-size: 38px
+    text-shadow: 0 0 5px black
+
+.nav-row
+  display: none
+  width: 400px
+  height: auto
+  position: fixed
+  right: 50px
+  top: 37px
+  z-index: 999
+
+  @include mobile
+    width: auto
+
+  a
+    text-decoration: none
+    text-shadow: 0 0 5px black
+
+  li
+    display: inline
+    margin-right: 25px
+    text-decoration: none
+    color: white
+    font-family: 'comfortaa'
+    text-transform: capitalize
+    letter-spacing: 1px
+    font-size: 14px
+    padding: 5px
+    transition: 0.4s ease-in-out
+
+    &:hover
+      color: $softblue
+
+    @include mobile
+      display: block
+      margin-bottom: 10px
+      width: 100%
+      text-align: right
+      position: relative
+      right: 55px
+
+.burger
+  width: 30px
+  height: auto
+  position: fixed
+  top: 37px
+  right: 35px
+  display: block
+  cursor: pointer
+  padding: 1px
+  z-index: 999
+
+  div
+    width: 100%
+    height: 3px
+    background: white
+    margin-bottom: 6px
+    border-radius: 2px
+    box-shadow: 0 0 5px black
+    transition: transform 300ms ease-in-out
+
+  &.on
+    .burger-one
+      transform: rotate(45deg) translateY(12px)
+
+
+    .burger-two
+      opacity: 0
+      transition: 0.05s
+
+    .burger-three
+      transform: rotate(-45deg) translateY(-12px)
+
+.headline
+  display: inline-block
+  width: 100%
+  height: auto
+
+  @include mobile
+    width: 90%
+
+  h1
+    font-family: 'raleway'
+    text-transform: uppercase
+    font-size: 50px
+    color: white
+    letter-spacing: 2px
+    margin-top: 200px
+    padding: 5px
+    box-sizing: border-box
+
+    @include mobile
+      font-size: 40px
+      padding: 0
+
+  p
+    font-family: 'poppins'
+    color: white
+    font-size: 16px
+    letter-spacing: 4px
+    text-transform: uppercase
+    margin-top: 10px
+
+    @include mobile
+      font-size: 12px
+
+.arrow
+  position: absolute
+  display: block
+  bottom: 20px
+  width: 100%
+  height: auto
+  color: white
+  animation-name: get-down
+  animation-duration: 1s
+  animation-iteration-count: infinite
+
+  a
+    color: white
+    padding: 10px
+
+  @keyframes get-down
+    0%
+      transform: translateY(0px)
+      color: darkgrey
+
+    50%
+      transform: translateY(15px)
+
+    100%
+      transform: translateY(0px)
+      color: white
+
+.about
+  width: 100%
+  height: 750px
+  background: black
+  overflow: auto
+  position: relative
+
+  @include mobile
+    height: 980px
+
+.mybackground
+  float: left
+  width: 60%
+  height: inherit
+  background: url(img/jashos1221.jpg)
+  background-size: cover
+  overflow: visible
+
+  @include mobile
+    width: 80%
+    height: 300px
+    margin-bottom: 10px
+
+  @include tablet
+    width: 100%
+    position: absolute
+    left: -100px
+
+.describe
+  width: 40%
+  height: auto
+  padding: 15px
+  box-sizing: border-box
+  position: absolute
+  right: 13%
+  top: 200px
+
+  @include mobile
+    display: inline-block
+    width: 100%
+    position: static
+    padding-right: 10px
+
+  @include tablet
+    right: 0
+    padding: 0
+
+  h3
+    font-size: 25px
+    color: white
+    font-family: 'raleway'
+    text-transform: capitalize
+    text-align: left
+    margin-bottom: 20px
+    letter-spacing: 2px
+    border-left: 5px solid #5f6ca5
+    padding-left: 10px
+
+    @include mobile
+      margin: 0
+      padding: 5px 10px 5px 15px
+
+  p
+    text-align: justify
+    margin-right: 25px
+    font-family: 'poppins'
+    font-size: 14px
+    color: white
+    letter-spacing: 1px
+
+    @include mobile
+      margin: 0
+      padding: 5px 10px 5px 15px
+
+  .skill
+    width: 80%
+    height: auto
+    margin-top: 30px
+
+    @include mobile
+      margin: 0
+      padding: 5px 10px 5px 15px
+
+    p
+      font-size: 12px
+      letter-spacing: 2px
+      text-transform: capitalize
+      color: white
+
+    .skill-point
+      width: 100%
+      height: 5px
+      background: $coco
+      border-radius: 2px
+      margin-bottom: 10px
+
+      .good
+        width: 85%
+        height: 5px
+        background: #5f6ca5
+        border-radius: 2px
+      .enough
+        width: 70%
+        height: 5px
+        background: #5f6ca5
+        border-radius: 2px
+      .bad
+        width: 60%
+        height: 5px
+        background: #5f6ca5
+        border-radius: 2px
+
+.work
+  width: 100%
+  height: auto
+  background: black
+  box-sizing: border-box
+  padding: 50px 0
+
+  @include tablet
+    height: 1080px
+
+  @include mobile
+    height: 1750px
+
+.work-of-mine
+  h3
+    font-size: 20px
+    color: white
+    font-family: 'raleway'
+    text-transform: capitalize
+    letter-spacing: 2px
+    padding: 20px
+    margin-bottom: 20px
+
+    hr
+      margin-top: 30px
+      display: inline-block
+      width: 200px
+
+.portfolio
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  height: 500px
+  background: black
+  box-sizing: border-box
+  margin-bottom: 20px
+
+  .tumbnail
+    width: 30%
+    height: 250px
+    overflow: hidden
+    position: relative
+    background-size: cover
+
+    @include mobile
+      width: 100%
+
+    @include tablet
+      width: 50%
+
+  .tumbnail:nth-child(2)
+    flex-grow: 2
+
+  .tumbnail:nth-child(5)
+    flex-grow: 2
+
+  .portfolio-caption
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    font-family: 'poppins'
+    letter-spacing: 1px
+    text-decoration: none
+    text-transform: capitalize
+    width: 100%
+    height: 0
+    position: absolute
+    bottom: 0
+    overflow: hidden
+    background: rgba(0, 0, 0, 0.8)
+    transition: 0.3s ease-in-out
+
+    a
+      text-decoration: none
+
+    .portfolio-caption-category
+      font-size: 16px
+      color: lightgrey
+
+    .portfolio-caption-project
+      font-size: 19px
+      color: $softblue
+
+  .tumbnail:hover .portfolio-caption
+    height: 100%
+
+.contact
+  width: 100%
+  height: auto
+  background: black
+  padding: 50px 0
+
+  h3
+    font-family: 'raleway'
+    letter-spacing: 2px
+    font-size: 24px
+    color: white
+    text-transform: capitalize
+
+    hr
+      margin-top: 30px
+      display: inline-block
+      width: 150px
+
+  .contact-icon
+    display: inline-block
+
+    .fa
+      font-size: 40px !important
+      color: $coco
+      padding: 5px
+      margin: 45px 30px
+      transition: 0.3s ease-in-out
+
+      &:hover
+        color: #5f6ca5
+        font-size: 45px
+
+  .direct-contact
+    display: inline-block
+    width: 100%
+    height: auto
+    margin-top: 40px
+
+    .fa
+      color: white
+      margin-bottom: 20px
+
+    .icon-social
+      font-size: 16px
+      color: white
+      font-family: 'poppins'
+      text-decoration: none
+      letter-spacing: 2px
+
+    .icon-social
+      margin: 10px 70px
+
+      @include mobile
+        margin: 5px
+
+.footer
+  width: 100%
+  height: 20px
+  background: black
+  text-align: center
+  font-family: 'poppins'
+  font-size: 12px
+  text-transform: capitalize
+  padding: 5px 0
+
+  h4
+    color: $coco
+    font-weight: 100
+    letter-spacing: 1px
